@@ -1,0 +1,4 @@
+create app-----> npx create-react-app app_name
+Then install reac router dom ------->  npm install react-router-dom
+then search in material ui and install ------>  npm install @mui/material @emotion/react @emotion/styled
+install icon material ---------> npm install @mui/icons-material
