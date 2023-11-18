@@ -22,7 +22,7 @@ const UserLogin = () => {
             setError({
                 status:true, msg:"Login Success", type:'success'
             })
-            navigate('/')
+            navigate('/dashboard')
         }else{
             setError({
                 status:true, msg:"All fields are Required", type:'error'

@@ -1,14 +1,15 @@
-import { Grid, Card, Typography, Tabs, Tab, Box } from '@mui/material';
+import { Grid, Card, Tabs, Tab, Box, Typography} from '@mui/material';
 import Pic1 from '../../../images/pic1.png'
 import { useState } from 'react';
 import UserLogin from './UserLogin';
 import UserRegistration from './UserRegistration';
+import { ShoppingBag } from '@mui/icons-material';
 
 
-const TabPanel = (props) =>{
-    const{children, value, index} = props;
-    return(
-        <div role='tabpanel1' hidden={value !== index}>
+const TabPanel = (props) => {
+    const { children, value, index } = props;
+    return (
+        <div role='tabpanel' hidden={value !== index}>
             {
                 value === index && (
                     <Box>{children}</Box>
@@ -24,38 +25,42 @@ const LoginReg = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     }
-    return (
-        <>
-            <Grid container sx={{ height: '90vh' }}>
-                <Grid item lg={7} sm={5} sx={{
-                    backgroundImage: `url(${Pic1})`,
-                    backgroundRepeat: 'non-repeat',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    display:{xs:'none', sm:'block'}
-                }}>
+    return <>
+        <Grid container sx={{ height: '90vh' }}>
+            <Grid item lg={7} sm={5} sx={{
+                backgroundImage: `url(${Pic1})`,
+                backgroundRepeat: 'non-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                display: { xs: 'none', sm: 'block' }
+            }}>
 
-                </Grid>
-
-                <Grid item lg={5} sm={7} sx={12}>
-                    <Card sx={{ width: '100%', height: '100%' }}>
-                        <Box>
-                            <Box sx={{borderBottom:1, borderColor:'divider'}}>
-                                <Tabs value={value} textColor='secondary' indicatorColor='secondary' onChange={handleChange}>
-                                    <Tab label='Login' sx={{textTransform:'none', fontWeight:'bold'}}></Tab>
-                                    <Tab label='Registration' sx={{textTransform:'none', fontWeight:'bold'}}></Tab>
-                                </Tabs>
-                            </Box>
-                                <TabPanel value={value} index={0}><UserLogin /></TabPanel>
-                                <TabPanel value={value} index={1}><UserRegistration/></TabPanel>
-                        </Box>
-
-                    </Card>
-
-                </Grid>
             </Grid>
-        </>
-    )
-}
+
+            <Grid item lg={5} sm={7} sx={12}>
+                <Card sx={{ width: '100%', height: '100%' }}>
+                    <Box sx={{mx:3, height:480}}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                            <Tabs value={value} textColor='secondary' indicatorColor='secondary' onChange={handleChange}>
+                                <Tab label='Login' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>
+                                <Tab label='Registration' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>
+                            </Tabs>
+                        </Box>
+                        <TabPanel value={value} index={0}><UserLogin /></TabPanel>
+                        <TabPanel value={value} index={1}><UserRegistration /></TabPanel>
+                    </Box>
+                    <Box textAlign="center" sx={{mt:2}}>
+                        <ShoppingBag sx={{color:'purple', fontSize:100}} />
+                        <Typography variant="h5" sx={{fontWeight:'bold'}}>Mumbai Coding Club</Typography>
+
+                    </Box>
+
+                </Card>
+
+            </Grid>
+        </Grid>
+    </>;
+
+};
 
 export default LoginReg

@@ -26,7 +26,7 @@ const UserRegistration = () => {
                 setError({
                     status:true, msg:"Registration Successful", type:'success'
                 })
-                navigate('/')
+                navigate('/dashboard')
             }else{
                 setError({
                     status:true, msg:"Password and Confirm Password Doesn't Match", type:'error'
@@ -54,7 +54,7 @@ const UserRegistration = () => {
         {error.status ? <Alert severity={error.type}>{error.msg}</Alert> : ""}
 
     </Box>
-  </>
-}
+  </>;
+};
 
 export default UserRegistration
